@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import streamlit as st
+st.image('img.jpg')
 
 # load data
 data = pd.read_csv('creditcard.csv')
@@ -46,6 +47,13 @@ if submit:
     prediction = model.predict(features.reshape(1,-1))
     # display result
     if prediction[0] == 0:
-        st.write("Legitimate transaction")
+        st.write("Safe , Legitimate transaction")
     else:
         st.write("Fraudulent transaction")
+        
+
+# sidebar
+st.sidebar.title("Login/SignUP")
+st.sidebar.text_input("Enter your mail")
+st.sidebar.text_input("Password")
+st.sidebar.button("LogIn")
